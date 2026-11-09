@@ -1,16 +1,22 @@
-#include "iostream"
-#include "string"
+#include <iostream>
+#include <string>
 
-int main(){
+int main() {
     std::string input;
-    while(input != "exit") {
-        std::cout<<"mini-shell $" ;
-        std::getline(std::cin,input);
-        if(input == "exit") {
-            std::cout<<"Goodbye"<<std::endl;    
-            return 0;
-        }else {
-            std::cout << input <<std::endl;
+    
+    std::cout << "mini-shell $ ";
+    while (std::getline(std::cin, input)) {
+        if (input == "exit") {
+            break;
         }
-    }  
+
+        if (!input.empty()) {
+            std::cout << input << std::endl;
+        }
+
+        std::cout << "mini-shell $ ";
+    }
+
+    std::cout << "Goodbye" << std::endl;    
+    return 0;
 }
