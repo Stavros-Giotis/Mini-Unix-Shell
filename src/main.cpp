@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "../include/input_helper.hpp"
 
 int main() {
     std::string input;
@@ -11,7 +12,8 @@ int main() {
         }
 
         if (!input.empty()) {
-            std::cout << input << std::endl;
+            std::vector<std::string> words = stringP(input);
+            std::cout << "Parsed " << words.size() << " arguments.\n";
         }
 
         std::cout << "mini-shell $ ";
