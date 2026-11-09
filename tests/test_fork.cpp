@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <iostream>
+#include <sys/wait.h>
 
 /*
 Create a variable x with value 10,call fork()
@@ -21,11 +22,12 @@ int main () {
     }
     if(pid == 0) {
         x = 50;
-        std::cout<< "inside child and pid:"<<getpid()<<"x is:"<< x<<std::endl;
+        std::cout<< "inside child ,curr_pid:"<<getpid()<<"parent pid:"<<getppid()<<"x is:"<< x<<std::endl;
         return 0;
     }
     else {
-        std::cout<< "inside parent and pid:"<<getpid()<<"x is:"<< x<<std::endl;
+        waitpid(pid,nullptr,0);
+        std::cout<< "inside parent, curr_pid:"<<getpid()<<"child pid:"<<pid <<"x is:"<< x<<std::endl;
         return 0;
     }
 }
