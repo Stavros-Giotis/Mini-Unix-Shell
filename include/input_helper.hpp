@@ -1,4 +1,4 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> stringP(std::string input);
+std::vector<std::string> stringP(const std::string& input);
